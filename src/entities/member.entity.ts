@@ -1,10 +1,10 @@
 import { MemberColumnName } from 'src/core/enum';
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Subject } from './subject.entity';
 
 @Entity('members')
 export class Member {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar', name: MemberColumnName.PSEUDO, unique: true })

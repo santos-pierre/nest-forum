@@ -5,15 +5,16 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
 import { Member } from './member.entity';
 import { Subject } from './subject.entity';
 
 @Entity('messages_subjects')
 export class MessageSubject {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar' })

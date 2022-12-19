@@ -7,7 +7,7 @@ import {
   JoinTable,
   ManyToMany,
   ManyToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from './category.entity';
@@ -15,7 +15,7 @@ import { Member } from './member.entity';
 
 @Entity('subjects')
 export class Subject {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ type: 'varchar' })
@@ -32,7 +32,7 @@ export class Subject {
   member_id: number;
 
   @ManyToMany(() => Category, { onUpdate: 'CASCADE' })
-  @JoinTable()
+  @JoinTable({ name: 'categories_subjects' })
   categories: Category[];
 
   @CreateDateColumn({ type: 'timestamp', name: SubjectColumnName.CREATED_AT })
